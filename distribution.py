@@ -7,6 +7,7 @@ import numpy as np
 import time as t
 
 def log_interp1d(xx, yy, kind='linear'):
+    # Interpola meglio la funzione
     '''funzione di interpolazione del profilo di king'''
     logx = np.log10(xx)
     logy = np.log10(yy)
@@ -15,22 +16,21 @@ def log_interp1d(xx, yy, kind='linear'):
     return log_interp
 
 def rescale(number, max_old, min_new, max_new):
-    '''Riscala numeri casuali tra 0  e N nell'intervallo che ti serve'''
+    # Riscala numeri casuali tra 0  e N nell'intervallo che ti serve
     return min_new + 2*number*max_new/max_old
 
 def all_coordinates(cell_dictionary):
-    # Ritorna le coordinate (x, y) degli oggetti in **arcosecondi**
+    # Ritorna le coordinate (x, y) degli oggetti in **arcominuti**
     x, y = [], []
     for key in cell_dictionary:
         single_cell_coordinates = cell_dictionary[key].cluster_coordinates()
         for tup in single_cell_coordinates:
-            x.append(arcmin_to_arcsec(tup[0]))
-            y.append(arcmin_to_arcsec(tup[1]))
+            x.append(tup[0])
+            y.append(tup[1])
     return (x, y)
 
-# plt.scatter(x, y, s = 0.1)
-
 def distance(tup_i, tup_j):
+    # Ritorna la distanza tra due stelle
     return np.sqrt((tup_i[0]-tup_j[0])**2 + (tup_i[1]-tup_j[1])**2)
 
 def arcsec_to_arcmin(arcsec):
@@ -39,9 +39,8 @@ def arcsec_to_arcmin(arcsec):
 def arcmin_to_arcsec(arcmin):
     return 60*arcmin
 
-def close_stars(star_coordinates, threshold = 0.2):
-    # Funzione del menga, da semplificare perchè di sicuro si può trovare un algoritmo intelligente
-    #  Versione 2.0, due liste invece che tre
+def close_stars(star_coordinates, threshold = arcsec_to_arcmin(0.2)):
+    # Funzione da semplificare perchè di sicuro si può trovare un algoritmo intelligente
     # A prescindere, credo funzionerà solo per aperture circolari
 
     check_list, x, y = [], [], []
@@ -64,6 +63,7 @@ def close_stars(star_coordinates, threshold = 0.2):
     return (x, y)
 
 def plot_something(tup, size, color, scatter = True):
+    # Plotta la distribuzione di oggetti
     x, y = [], []
     for (i, j) in zip(tup[0], tup[1]):
         x.append(i)
@@ -87,7 +87,6 @@ f.close()
 interpolation_function = log_interp1d(x_interpolation, y_interpolation, kind = 'cubic')
 
 def object_number_function(distance):
-    # print(distance)
     return interpolation_function(distance)
 
 # * -------------------------------------- ** -------------------------------------- * #
@@ -154,7 +153,7 @@ class cell:
 
 
 global_side = arcmin_to_arcsec(28) # 28 arcominuti, convertito poi in arcosecondi
-subdivisions = 112 # Non oltre, altrimenti cominci a perdere oggetti
+subdivisions = 112 # Non oltre 112, altrimenti cominci a perdere oggetti
 cell_side = global_side/subdivisions
 print('Il lato della cella è pari a %f arcominuti' % arcsec_to_arcmin(cell_side))
 cell_dict = {}

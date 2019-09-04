@@ -24,19 +24,14 @@ def sr(t_exp):
 
 # * ---------------------------------------  **  --------------------------------------- * #
 
-# I parametri cambiano da filtro a filtro! Controlla tutto 8 volte almeno!
-# Fai riferimento a: http://etc.stsci.edu/etcstatic/users_guide/1_ref_9_background.html
-
 FWHM = 0.2 #
 prim_diam = 240 # In centimetri - !! Non sono del tutto sicuro !!
 sec_diam = 30 # In centimetri - !! Non sono del tutto sicuro !!
 eta = 0.224 # Ricavato tramite interpolazione e media integrale
 t_exp = 34.217 # Questo sara' comunque trovato per bisezione
-DK = 0.0023 # Indicati: 9 e- per ora per pixel - preso dal sito della simulazione
+DK = 0.0023 #
 p = 0.0395 #
 RON = 3.1 #
-# Per lui ^ ci sono due valori, uno da: http://etc.stsci.edu/etcstatic/users_guide/1_ref_9_background.html
-#  e uno da: https://hst-docs.stsci.edu/display/WFC3IHB/5.1+Overview+of+this+Chapter#id-5.1OverviewofthisChapter-table1
 
 # * ---------------------------------------  **  --------------------------------------- * #
 
@@ -46,7 +41,7 @@ A_sec = (sec_diam/2.) ** 2 * np.pi
 A = A_prim - A_sec
 delta = np.pi * FWHM**2 # Questo in realta' e' delta^2
 # flux_star = 1  flux(magnitude) <-- sostituito dal codice sotto
-# flux_bkg = flux(magnitude_sky) # Questo e' da aggiornare per le luci zodiacali.
+# flux_bkg = flux(magnitude_sky) <-- sostituito dal codice sotto
 
 # * ---------------------------------------  **  --------------------------------------- * #
 

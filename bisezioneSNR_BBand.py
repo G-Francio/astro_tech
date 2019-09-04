@@ -12,7 +12,7 @@ def sr(t_exp):
     delta = m.pi * FWHM**2 # Questo in realta' e' delta^2
 
     flux_star = flux(magnitude)
-    flux_bkg = flux(magnitude_sky) # Questo e' da aggiornare per le luci zodiacali.
+    flux_bkg = flux(magnitude_sky)
 
     signal_photon = flux_star * A * eta * t_exp
     bkg_photon = flux_bkg * delta * A * eta * t_exp
@@ -29,10 +29,6 @@ def sr(t_exp):
 
     return SNR
 
-# valido per hst, e non so nemmeno quanto! Controlla tutto 6 volte almeno!
-
-# I parametri cambiano da filtro a filtro! Controlla tutto 8 volte almeno!
-# Fai riferimento a: http://etc.stsci.edu/etcstatic/users_guide/1_ref_9_background.html
 
 magnitude = 21 #
 magnitude_sky = 23.2 # High da quanto dice il sito, unico valore che non torna
@@ -41,11 +37,9 @@ prim_diam = 240 # In centimetri - !! Non sono del tutto sicuro !!
 sec_diam = 30 # In centimetri - !! Non sono del tutto sicuro !!
 eta = 0.181 # Ricavato tramite interpolazione e media integrale
 t_exp = 30 # Questo sara' comunque trovato per bisezione
-DK = 0.0023 # Indicati: 9 e- per ora per pixel - preso dal sito della simulazione
+DK = 0.0023 #
 p = 0.04 #
 RON = 3.1 #
-# Per lui ^ ci sono due valori, uno da: http://etc.stsci.edu/etcstatic/users_guide/1_ref_9_background.html
-#  e uno da: https://hst-docs.stsci.edu/display/WFC3IHB/5.1+Overview+of+this+Chapter#id-5.1OverviewofthisChapter-table1
 
 target_sr = 50
 

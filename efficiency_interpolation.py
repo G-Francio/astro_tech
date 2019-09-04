@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 x = []
 y = []
 
-#with open('bandpass.txt') as f:
 with open('F555W.txt') as f:
     for line in f:
         new_line = line.split(' ')
@@ -38,7 +37,6 @@ for (elem_x, elem_y) in zip(x, y):
 print('Start: %f, stop: %f, delta lambda: %f' % (start, stop, abs(start-stop)))
 
 integral = integ.quad(f_interpolate, start, stop, points = x, limit = len(x))[0]
-#print(integral)
 av_eff = integral/(stop-start)
 print('Efficienza media: %f' % av_eff)
 

@@ -5,10 +5,7 @@ c = 2.99792e18 # a/s
 h = 6.63e-27   # erg*s
 
 # Dati specifici per banda
-#  Visibile (606W): AB = 0.04, l = 5887.5 a, dl = 2543 a <-- nope, super largo
-#  Blu (475W): AB = -0.09 (da controllare!), l = 4773.6 a, dl = 1665 a <-- nope, troppo sul verde
-#  Visibile (555W): AB = 0.03, l = 5410 a, dl = 2789 a <-- In questo caso il calcolo come quantità medie fa
-#   schifo
+#  Visibile (555W): AB = 0.03, l = 5410 a, dl = 2789 a
 #  Blu (438W): AB = 0.18, l = 4320 a, dl = 843 a
 
 AB = 0.18
