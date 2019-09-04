@@ -1,6 +1,6 @@
 # Astronomical_Techniques
 
-Script utilizzati per le simulazioni. Richiedono [Python3](https://www.python.it/), [MatPlotLib](https://matplotlib.org/) e [Scipy](https://matplotlib.org/), assieme ai file .txt che contengono i dati testuali che vengono importanti negli script (F555W.txt, F438W, earthshine.txt, zodiacal_light.txt, V_21Mag.txt, B_21Mag.txt, King_profile.txt).
+Script utilizzati per le simulazioni. Richiedono [Python3](https://www.python.it/), [MatPlotLib](https://matplotlib.org/) e [Scipy](https://matplotlib.org/), assieme ai file .txt che contengono i dati testuali che vengono importanti negli script (F555W.txt, F438W.txt, earthshine.txt, zodiacal_light.txt, V_21Mag.txt, B_21Mag.txt, King_profile.txt).
 
 Ogni script effettua una parte dell'analisi in modo differente:
  - distribution.py: si occupa di simulare la distribuzione di oggetti e stimare la regione in cui non vengono risolti singolarmente
