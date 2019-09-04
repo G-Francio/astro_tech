@@ -180,10 +180,25 @@ print('Numero totale di oggetti generati: %d \nTempo necessario per determinare 
  % (len(xy_coordinates[0]), (stop-start)))
 
 # Decommenta per vedere solo gli oggetti senza distinzioni
+# ~ plt.gca().set_aspect('equal')
 # ~ plot_something(xy_coordinates, 0.1, 'b')
 # ~ plt.show()
 
 # Decommenta per vedere tutti gli oggetti con evidenziati quelli non risolvibili
+plt.gca().set_aspect('equal')  # Pareggia gli assi in modo che i cerchi appaiano tali
+
+radius = 0
+count = 0
+
+for (i, j) in zip(close_coordinates[0], close_coordinates[1]):
+    radius += np.sqrt(i**2 + j**2)
+    count += 1
+
+radius = radius/count
+    
+circle = plt.Circle((0,0), radius, color = 'k', fill = False)
+plt.gcf().gca().add_artist(circle)
+
 plot_something(xy_coordinates, 0.1, 'b')
 plot_something(close_coordinates, 0.15, 'r')
 plt.show()
