@@ -1,4 +1,4 @@
-# Astronomical_Techniques
+# Tecnologie astronomiche
 
 Script utilizzati per le simulazioni. Richiedono [Python3](https://www.python.it/), [MatPlotLib](https://matplotlib.org/) e [Scipy](https://matplotlib.org/), assieme ai file .txt che contengono i dati testuali che vengono importanti negli script (F555W.txt, F438W.txt, earthshine.txt, zodiacal_light.txt, V_21Mag.txt, B_21Mag.txt, King_profile.txt).
 
