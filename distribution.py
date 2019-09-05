@@ -64,15 +64,10 @@ def close_stars(star_coordinates, threshold = arcsec_to_arcmin(0.2)):
 
 def plot_something(tup, size, color, scatter = True):
     # Plotta la distribuzione di oggetti
-    x, y = [], []
-    for (i, j) in zip(tup[0], tup[1]):
-        x.append(i)
-        y.append(j)
-
     if scatter:
-        plt.scatter(x, y, s = size, c = color)
+        plt.scatter(tup[0], tup[1], s = size, c = color)
     else:
-        plt.plot(x, y, s = size, c = color)
+        plt.plot(tup[0], tup[1], s = size, c = color)
 
 # * -------------------------------------- ** -------------------------------------- * #
 

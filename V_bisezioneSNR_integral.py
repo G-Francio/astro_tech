@@ -95,8 +95,10 @@ def photon_per_angstrom(flux_l, l):
     return flux_l(l) * l/(h*c)
 
 def product_signal(l):
-    return photon_per_angstrom(spl_flux, l) * spl_bandpass(l) # Dovrebbe ritornare il prodotto flusso*efficienza,
-                                                              #  in funzione di lambda
+    return 0.86*photon_per_angstrom(spl_flux, l) * spl_bandpass(l)
+# ^ Dovrebbe ritornare il prodotto flusso*efficienza,
+#  in funzione di lambda
+
 def product_bkg(l):
     return (photon_per_angstrom(spl_earthshine, l) + photon_per_angstrom(spl_zodiacal, l)) * spl_bandpass(l)
 
