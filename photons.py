@@ -2,14 +2,13 @@ import numpy as np
 
 # Costanti per i calcoli, a = angstrom
 c = 2.99792e18 # a/s
-h = 6.63e-27   # erg*s
+h = 6.63e-27 # erg*s
 
 # Dati specifici per banda
 #  Visibile (555W): AB = 0.03, l = 5410 a, dl = 2789 a
 #  Blu (438W): AB = 0.18, l = 4320 a, dl = 843 a
 
 AB = 0.18
-B_V = 0.54
 delta_l = 843
 l = 4320
 

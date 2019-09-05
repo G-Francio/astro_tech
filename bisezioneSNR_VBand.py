@@ -31,7 +31,7 @@ def sr(t_exp):
 
 
 magnitude = 21 #
-magnitude_sky = 22.1 # high da quanto dice il sito, unico valore che non torna
+magnitude_sky = 22.1 # high da quanto dice il sito
 FWHM = 0.2 #
 prim_diam = 240 # In centimetri - !! Non sono del tutto sicuro !!
 sec_diam = 30 # In centimetri - !! Non sono del tutto sicuro !!
@@ -56,4 +56,3 @@ while abs(sr(t_exp) - target_sr) > tol:
         down = t_exp
 
 print('Il tempo di esposizione necessario per un snr di %f è %f' % (sr(t_exp), t_exp))
-# print(signal_photon, RON_photon, sky_photon)

@@ -4,7 +4,7 @@ import numpy as np
 
 # Costanti per i calcoli, a = angstrom
 c = 2.99792e18 # a/s
-h = 6.626070e-27   # erg*s
+h = 6.626070e-27 # erg*s
 
 def sr(t_exp):
     signal_photon = flux_star * A * t_exp

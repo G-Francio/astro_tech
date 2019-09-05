@@ -8,7 +8,8 @@ import time as t
 
 def log_interp1d(xx, yy, kind='linear'):
     # Interpola meglio la funzione
-    '''funzione di interpolazione del profilo di king'''
+    # Da: https://stackoverflow.com/questions/29346292/logarithmic-interpolation-in-python
+    # Enorme grazie a stackoverflow, che ha sempre la soluzione a qualsiasi problema pensabile
     logx = np.log10(xx)
     logy = np.log10(yy)
     lin_interp = sp.interpolate.interp1d(logx, logy, kind=kind)
@@ -39,7 +40,7 @@ def arcsec_to_arcmin(arcsec):
 def arcmin_to_arcsec(arcmin):
     return 60*arcmin
 
-def close_stars(star_coordinates, threshold = arcsec_to_arcmin(0.2)):
+def close_stars(star_coordinates, threshold = arcsec_to_arcmin(0.4)):
     # Funzione da semplificare perchè di sicuro si può trovare un algoritmo intelligente
     # A prescindere, credo funzionerà solo per aperture circolari
 
@@ -89,7 +90,7 @@ def object_number_function(distance):
 class cell:
     max_rand = 1000
     
-    # Importante: side è un float, center position è una tupla, object position una lista di tuple
+    # Importante: side è un float, cell center è una tupla, cell_index un intero
     def __init__(self, side, cell_center, cell_index):
         self.side = side
         self.cell_center = cell_center
@@ -122,7 +123,7 @@ class cell:
         y_object = rescale(r.randint(0, self.max_rand), self.max_rand, -self.side/2, self.side/2)
         return (x_object, y_object)
 
-    # Costruisce la lista contenente tutti le tuple di coordinate interne alla cella
+    # Costruisce la lista contenente tutte le tuple di coordinate interne alla cella
     def cell_coordinates(self):
         if self.local_coordinates != []:
             return self.local_coordinates
@@ -183,9 +184,19 @@ print('Numero totale di oggetti generati: %d \nTempo necessario per determinare 
 # ~ plot_something(xy_coordinates, 0.1, 'b')
 # ~ plt.show()
 
-# Decommenta per vedere tutti gli oggetti con evidenziati quelli non risolvibili
+# Decommenta per vedere tutti gli oggetti con evidenziati quelli troppo vicini
 plt.gca().set_aspect('equal')  # Pareggia gli assi in modo che i cerchi appaiano tali
 
+# Calcolo del raggio come mediana
+# ~ radius = 0
+# ~ distances = []
+
+# ~ for (i, j) in zip(close_coordinates[0], close_coordinates[1]):
+    # ~ distances.append(np.sqrt(i**2 + j**2))
+
+# ~ radius = np.median(distances)
+
+# Calcolo del raggio come media
 radius = 0
 count = 0
 
@@ -194,6 +205,9 @@ for (i, j) in zip(close_coordinates[0], close_coordinates[1]):
     count += 1
 
 radius = radius/count
+print('Il raggio minimo corrisponde a: %f' % radius)
+
+# * -------------------------------------- ** -------------------------------------- * #
     
 circle = plt.Circle((0,0), radius, color = 'k', fill = False)
 plt.gcf().gca().add_artist(circle)

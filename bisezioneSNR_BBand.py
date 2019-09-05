@@ -31,8 +31,8 @@ def sr(t_exp):
 
 
 magnitude = 21 #
-magnitude_sky = 23.2 # High da quanto dice il sito, unico valore che non torna
-FWHM = 0.2 #
+magnitude_sky = 23.2 # High da quanto dice il sito
+
 prim_diam = 240 # In centimetri - !! Non sono del tutto sicuro !!
 sec_diam = 30 # In centimetri - !! Non sono del tutto sicuro !!
 eta = 0.181 # Ricavato tramite interpolazione e media integrale

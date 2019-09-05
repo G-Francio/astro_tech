@@ -41,7 +41,6 @@ av_eff = integral/(stop-start)
 print('Efficienza media: %f' % av_eff)
 
 plt.plot(x, f_interpolate(x))
-# plt.scatter(x, y, s = 2.5, c = 'g')
 plt.scatter((start, stop), (f_interpolate(start), f_interpolate(stop)), c = 'r', s = 2.5)
 plt.show()
     
