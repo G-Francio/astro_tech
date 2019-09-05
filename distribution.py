@@ -109,7 +109,11 @@ class cell:
     def object_number(self):
         object_density = object_number_function(self.distance_to_center())
         object_number_int = int(object_density * self.area())
-        return object_number_int
+        dec = object_density * self.area() - object_number_int
+        if dec < 0.5:
+            return object_number_int
+        else:
+            return (object_number_int + 1)
     
     # Ritorna una tupla contenente le coordinate di due oggetti interni alla cella
     def generate_coordinates(self):
