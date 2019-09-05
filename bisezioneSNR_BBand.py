@@ -8,7 +8,7 @@ def flux(num):
 def sr(t_exp):
     A_primary = (prim_diam/2.) ** 2 * m.pi
     A_secondary = (sec_diam/2.) ** 2 * m.pi
-    A = A_primary    
+    A = A_primary - A_secondary
     delta = m.pi * FWHM**2 # Questo in realta' e' delta^2
 
     flux_star = flux(magnitude)
@@ -38,7 +38,7 @@ sec_diam = 30 # In centimetri - !! Non sono del tutto sicuro !!
 eta = 0.181 # Ricavato tramite interpolazione e media integrale
 t_exp = 30 # Questo sara' comunque trovato per bisezione
 DK = 0.0023 #
-p = 0.04 #
+p = 0.0395 #
 RON = 3.1 #
 
 target_sr = 50
